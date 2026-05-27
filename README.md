@@ -3,7 +3,7 @@
 TSI Graduate (2005, IT). Applying a rigorous engineering approach to high-concurrency Edge routing, custom network daemons in Go, and Linux stack optimization under high QPS / DDoS resilience. Hardcore systems architecture is my primary focus and passion.
 
 #### 🛡️ Operational Status
-* **Whitehat / Bluehat / Redhat** — Legal audits, deep defensive engineering (Nginx, nftables, Unbound), and active malicious traffic mitigation. Strict adherence to the "Do No Harm" principle.
+* **Whitehat / Bluehat / Redhat** — Legal audits, deep defensive engineering (Nginx, xdp-tools, nftables), and active malicious traffic mitigation. Strict adherence to the "Do No Harm" principle.
 
 #### 🤖 AI-Driven Systems Engineering
 * Advanced code refactoring, static analysis, and runtime architecture optimization executed in close collaboration with **Gemini** and **Claude Code** (AI Studio / CLI tools).
