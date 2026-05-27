@@ -1,16 +1,14 @@
-## Hi there 👋
+### Systems & Network Engineer // Ozy-666
 
-<!--
-**Ozy-666/Ozy-666** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+TSI Graduate (2005, IT). Applying a rigorous engineering approach to high-concurrency Edge routing, custom network daemons in Go, and Linux stack optimization under high QPS / DDoS resilience. Hardcore systems architecture is my primary focus and passion.
 
-Here are some ideas to get you started:
+#### 🛡️ Operational Status
+* **Whitehat / Bluehat / Redhat** — Legal audits, deep defensive engineering (Nginx, nftables, Unbound), and active malicious traffic mitigation. Strict adherence to the "Do No Harm" principle.
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+#### 🤖 AI-Driven Systems Engineering
+* Advanced code refactoring, static analysis, and runtime architecture optimization executed in close collaboration with **Gemini** and **Claude Code** (AI Studio / CLI tools).
+
+#### ⚙️ Current Focus: [DNSDOH.ART](https://dnsdoh.art)
+* Deployment and maintenance of a highly available, independent encrypted DNS infrastructure (DoH3 / DoH / DoT / DoQ).
+---
+*QA & Process Inspection: Maine Coon Michelle . Strict control over system uptime and stability.*
