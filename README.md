@@ -31,4 +31,6 @@ The TLS and DNS daemons themselves are stock. Every customisation lives in build
 Profile-driven: every change is proven with `pprof` / `benchstat` on real hardware before it ships, and the dead-ends get documented alongside the wins. Static analysis, profiling and refactoring done with AI tooling (**Claude Code**, **Gemini** / AI Studio CLI) in the loop.
 
 ---
-*QA &amp; uptime inspection: Maine Coon Michelle 🐾 — strict about stability and allocation budgets.*
+*Career note: I left IT around 2012 and came back to it in late 2025. This is evenings-and-weekends work, not a day job — which is also why there's no company behind DNSDOH.ART and never will be.*
+
+*QA &amp; uptime inspection: Maine Coon Michelle 🐾 — sits on the keyboard during deploys. Zero incidents attributable to her so far.*
