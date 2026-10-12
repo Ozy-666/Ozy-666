@@ -2,7 +2,7 @@
 
 TSI alumnus (IT, Class of '05). I build and run high-availability, high-concurrency edge infrastructure — zero-allocation Go network daemons, Linux kernel tuning (XDP, nftables), and aggressive codebase stripping to cut runtime overhead and attack surface.
 
-My main project is **[DNSDOH.ART](https://dnsdoh.art/)** — a public encrypted-DNS resolver I build and run as a hobby. No logs, no telemetry, no company behind it. → [ozy-666.github.io](https://ozy-666.github.io/)
+My main project is **[DNSDOH.ART](https://dnsdoh.art/)** — a public encrypted-DNS resolver I build and run as a personal project. No query logs, no telemetry, no company behind it. → [ozy-666.github.io](https://ozy-666.github.io/)
 
 ---
 
@@ -13,11 +13,12 @@ The goal behind all of it: a single node that simply does not fall over.
 * **Dynamic nftables orchestration:** a Go control plane talking to **nftables** over Netlink sockets, pushing real-time blocklists straight into kernel-space sets to isolate abusers with minimal CPU cost.
 
 #### ⚙️ The resolver behind it — [DNSDOH.ART](https://dnsdoh.art/)
-A single, carefully-tuned server — **not a global anycast network** — running encrypted DNS over DoH, DoH3 (QUIC), DoQ and DoT, with ad/tracker blocking and a strict no-logs policy. The focus is reliability and zero tolerance for DDoS and abuse, not out-scaling the big providers.
+A single, carefully-tuned server — **not a global anycast network** — running encrypted DNS over DoH, DoH3 (QUIC), DoQ and DoT, with ad/tracker blocking and no query logs. The focus is reliability and zero tolerance for DDoS and abuse, not out-scaling the big providers.
 
 #### 🧱 The stack — upstream software, no forks to maintain
-Since October 2026 the resolver runs upstream releases, not forks: **nginx** for DoH / DoH3, **dnsdist** for plain DNS, DoT, DoQ and blocklists, and **Unbound** for DNSSEC validation, forwarding over DoT to Cloudflare and Quad9. For nginx and Unbound, every customisation lives in build flags, configuration and systemd units, and the build scripts fetch the official upstream release, so there is nothing to merge on each release.
-* **[nginx-edge](https://github.com/Ozy-666/nginx-edge)** — BoringSSL-linked nginx: HTTP/3, post-quantum key exchange, Zen 2 tuning, plus annotated TLS-hardening and L7 anti-DDoS example configs. Carries one patch: server-side Encrypted Client Hello, which nginx implements only against the OpenSSL 3.x API and not BoringSSL.
+Since October 2026 the resolver runs upstream releases, not forks: **nginx** for DoH / DoH3, **dnsdist** for plain DNS, DoT, DoQ and blocklists, and **Unbound** for DNSSEC validation, forwarding over DoT to Cloudflare and Quad9. dnsdist runs exactly as released and is customised only through configuration. For nginx and Unbound, the customisation lives in build flags, configuration and systemd units, and the build scripts fetch the official upstream release, so there is nothing to merge on each release.
+* **[dnsdoh-edge](https://github.com/Ozy-666/dnsdoh-edge)** — the dnsdist side: pinned build, Lua configuration, the Rust compiler that turns AdGuard-syntax blocklists into the database dnsdist reads, Unbound cookie drop-ins and parity tests. Exported from my private working tree, with a dated line for every export.
+* **[nginx-edge](https://github.com/Ozy-666/nginx-edge)** — BoringSSL-linked nginx: HTTP/3, post-quantum key exchange, Zen 2 tuning, plus annotated TLS-hardening and L7 anti-DDoS example configs. Carries two patches: server-side Encrypted Client Hello, which nginx implements only against the OpenSSL 3.x API and not BoringSSL, and a QUIC handshake-recovery fix for [nginx/nginx#1616](https://github.com/nginx/nginx/issues/1616).
 * **[unbound-edge](https://github.com/Ozy-666/unbound-edge)** — BoringSSL-linked, Zen 2-optimised Unbound. BoringSSL was chosen on measured DNSSEC throughput, not assumed parity, and the repo ships the benchmark that re-proves it after every library bump.
 
 #### 📏 Measurements & bug reports
